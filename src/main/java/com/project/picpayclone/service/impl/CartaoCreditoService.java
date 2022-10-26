@@ -1,6 +1,7 @@
 package com.project.picpayclone.service.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.project.picpayclone.conversor.CartaoCreditoConversor;
 import com.project.picpayclone.dto.CartaoCreditoDTO;
@@ -9,6 +10,7 @@ import com.project.picpayclone.repository.CartaoCreditoRepository;
 import com.project.picpayclone.service.ICartaoCreditoService;
 import com.project.picpayclone.service.IUsuarioService;
 
+@Service
 public class CartaoCreditoService implements ICartaoCreditoService{
 
 	@Autowired

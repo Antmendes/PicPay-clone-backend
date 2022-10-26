@@ -1,10 +1,11 @@
 package com.project.picpayclone.service;
 
-import java.awt.print.Pageable;
+
 
 import javax.validation.Valid;
 
 import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 
 import com.project.picpayclone.dto.TransacaoDTO;
 
