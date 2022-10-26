@@ -33,4 +33,64 @@ public class TransacaoDTO {
 	private CartaoCreditoDTO cartaoCredito;
 	
 	private Boolean isCartaoCredito = false;
+
+	
+	
+	public String getCodigo() {
+		return codigo;
+	}
+
+	public void setCodigo(String codigo) {
+		this.codigo = codigo;
+	}
+
+	public UsuarioDTO getOrigem() {
+		return origem;
+	}
+
+	public void setOrigem(UsuarioDTO origem) {
+		this.origem = origem;
+	}
+
+	public UsuarioDTO getDestino() {
+		return destino;
+	}
+
+	public void setDestino(UsuarioDTO destino) {
+		this.destino = destino;
+	}
+
+	public LocalDateTime getDataHora() {
+		return dataHora;
+	}
+
+	public void setDataHora(LocalDateTime dataHora) {
+		this.dataHora = dataHora;
+	}
+
+	public Double getValor() {
+		return valor;
+	}
+
+	public void setValor(Double valor) {
+		this.valor = valor;
+	}
+
+	public CartaoCreditoDTO getCartaoCredito() {
+		return cartaoCredito;
+	}
+
+	public void setCartaoCredito(CartaoCreditoDTO cartaoCredito) {
+		this.cartaoCredito = cartaoCredito;
+	}
+
+	public Boolean getIsCartaoCredito() {
+		return isCartaoCredito;
+	}
+
+	public void setIsCartaoCredito(Boolean isCartaoCredito) {
+		this.isCartaoCredito = isCartaoCredito;
+	}
+
+	
 }

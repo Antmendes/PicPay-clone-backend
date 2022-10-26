@@ -47,11 +47,96 @@ public class Usuario extends ModelBase{
 	private String numeroTelefone;
 	
 	@OneToMany(mappedBy = "usuario", fetch = FetchType.LAZY, cascade = CascadeType.MERGE, orphanRemoval = true)
-	private List<CartaoCredito> cartoesCredito;
-	
+	private List<CartaoCredito> cartoesCredito;// fetch.LAZY não traz tudo na busca, MERGE ja atualiza qdo houver
+	                                                         // orphanRemoval remove o cartao se o usuario for excluido
 	@Column(name = "USUA_SALDO", nullable = false)
 	private Double saldo;
 	
 	@Column(name = "USUA_ATIVO", nullable = false)
 	private Boolean ativo;
+	
+	
+
+	public String getLogin() {
+		return login;
+	}
+
+	public void setLogin(String login) {
+		this.login = login;
+	}
+
+	public String getSenha() {
+		return senha;
+	}
+
+	public void setSenha(String senha) {
+		this.senha = senha;
+	}
+
+	public String getEmail() {
+		return email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public String getNomeCompleto() {
+		return nomeCompleto;
+	}
+
+	public void setNomeCompleto(String nomeCompleto) {
+		this.nomeCompleto = nomeCompleto;
+	}
+
+	public String getCpf() {
+		return cpf;
+	}
+
+	public void setCpf(String cpf) {
+		this.cpf = cpf;
+	}
+
+	public LocalDate getDataNascimento() {
+		return dataNascimento;
+	}
+
+	public void setDataNascimento(LocalDate dataNascimento) {
+		this.dataNascimento = dataNascimento;
+	}
+
+	public String getNumeroTelefone() {
+		return numeroTelefone;
+	}
+
+	public void setNumeroTelefone(String numeroTelefone) {
+		this.numeroTelefone = numeroTelefone;
+	}
+
+	public List<CartaoCredito> getCartoesCredito() {
+		return cartoesCredito;
+	}
+
+	public void setCartoesCredito(List<CartaoCredito> cartoesCredito) {
+		this.cartoesCredito = cartoesCredito;
+	}
+
+	public Double getSaldo() {
+		return saldo;
+	}
+
+	public void setSaldo(Double saldo) {
+		this.saldo = saldo;
+	}
+
+	public Boolean getAtivo() {
+		return ativo;
+	}
+
+	public void setAtivo(Boolean ativo) {
+		this.ativo = ativo;
+	}
+	
+	
+	
 }
