@@ -1,14 +1,24 @@
 package com.project.picpayclone.model;
 
 import java.time.LocalDate;
+import java.util.Arrays;
+import java.util.Collection;
 import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
 import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
+import com.project.picpayclone.enums.TipoPermissao;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -23,7 +33,10 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper = false)
 @Entity
 @Table(name = "USUARIOS")
-public class Usuario extends ModelBase{
+public class Usuario extends ModelBase implements UserDetails{
+
+	
+	private static final long serialVersionUID = 1L;
 
 	@Column(name = "USUA_LOGIN", nullable = false)
 	private String login;
@@ -54,6 +67,10 @@ public class Usuario extends ModelBase{
 	
 	@Column(name = "USUA_ATIVO", nullable = false)
 	private Boolean ativo;
+	
+	@Enumerated(EnumType.STRING)
+	@Column(name = "USUA_PERMISSAO", nullable = false)
+	private com.project.picpayclone.enums.TipoPermissao permissao;
 	
 	
 
@@ -135,6 +152,55 @@ public class Usuario extends ModelBase{
 
 	public void setAtivo(Boolean ativo) {
 		this.ativo = ativo;
+	}
+	
+	
+
+	@Override
+	public Collection<? extends GrantedAuthority> getAuthorities() {
+		return Arrays.asList(new SimpleGrantedAuthority(permissao.getCodigo()));
+		
+	}
+
+	@Override
+	public String getPassword() {
+		
+		return senha;
+	}
+
+	@Override
+	public String getUsername() {
+		
+		return login;
+	}
+
+	@Override
+	public boolean isAccountNonExpired() {
+		
+		return true;
+	}
+
+	@Override
+	public boolean isAccountNonLocked() {
+		
+		return true;
+	}
+
+	@Override
+	public boolean isCredentialsNonExpired() {
+		
+		return true;
+	}
+
+	@Override
+	public boolean isEnabled() {
+		
+		return this.ativo;
+	}
+
+	public Object getPermissao() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 	
